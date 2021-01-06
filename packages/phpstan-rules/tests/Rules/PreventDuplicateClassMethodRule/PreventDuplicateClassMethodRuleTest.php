@@ -23,6 +23,7 @@ final class PreventDuplicateClassMethodRuleTest extends AbstractServiceAwareRule
     public function provideData(): Iterator
     {
         yield [[__DIR__ . '/Fixture/FirstClass.php'], []];
+        yield [[__DIR__ . '/Fixture/FirstClassWithParameter.php'], []];
         yield [[__DIR__ . '/Fixture/ValueObject1.php', __DIR__ . '/Fixture/ValueObject2.php'], []];
         yield [[__DIR__ . '/Fixture/Entity1.php', __DIR__ . '/Fixture/Entity2.php'], []];
 
@@ -43,7 +44,7 @@ final class PreventDuplicateClassMethodRuleTest extends AbstractServiceAwareRule
 
         $errorMessage = sprintf(
             PreventDuplicateClassMethodRule::ERROR_MESSAGE,
-            'someMethod',
+            'method',
             'Symplify\PHPStanRules\Tests\Rules\PreventDuplicateClassMethodRule\Fixture\FirstClassWithParameter'
         );
         yield [[__DIR__ . '/Fixture/SecondClassDuplicateFirstClassWithParameterMethod.php'], [[$errorMessage, 9]]];
