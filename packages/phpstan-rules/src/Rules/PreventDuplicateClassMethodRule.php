@@ -204,7 +204,9 @@ CODE_SAMPLE
                     return;
                 }
 
-                $node->name = $maskName;
+                if (isset($node->name)) {
+                    $node->name = $maskName;
+                }
             });
 
             ++$maskName;
