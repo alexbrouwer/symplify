@@ -246,7 +246,11 @@ CODE_SAMPLE
             }
         }
 
+        $newClassMethod->setAttribute(PhpParserAttributeKey::ORIGINAL_NODE, null);
         $newClassMethod->setAttribute(PhpParserAttributeKey::COMMENTS, $comments);
+
+        dump($newClassMethod->getAttribute(PhpParserAttributeKey::COMMENTS));
+
         return $this->printerStandard->prettyPrint([$newClassMethod]);
     }
 
