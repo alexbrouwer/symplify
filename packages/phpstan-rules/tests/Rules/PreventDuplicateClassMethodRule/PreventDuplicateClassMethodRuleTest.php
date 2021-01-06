@@ -40,6 +40,13 @@ final class PreventDuplicateClassMethodRuleTest extends AbstractServiceAwareRule
             'Symplify\PHPStanRules\Tests\Rules\PreventDuplicateClassMethodRule\Fixture\FirstClass'
         );
         yield [[__DIR__ . '/Fixture/SecondClassDuplicateFirstClassMethod.php'], [[$errorMessage, 15]]];
+
+        $errorMessage = sprintf(
+            PreventDuplicateClassMethodRule::ERROR_MESSAGE,
+            'someMethod',
+            'Symplify\PHPStanRules\Tests\Rules\PreventDuplicateClassMethodRule\Fixture\FirstClassWithParameter'
+        );
+        yield [[__DIR__ . '/Fixture/SecondClassDuplicateFirstClassWithParameterMethod.php'], [[$errorMessage, 9]]];
     }
 
     protected function getRule(): Rule
